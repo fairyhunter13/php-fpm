@@ -65,7 +65,6 @@ RUN chmod ug+x /usr/bin/composer ; \
     snuffleupagus \
     soap \
     sockets \
-    solr \
     sqlsrv \
     ssh2 \
     sysvmsg \
