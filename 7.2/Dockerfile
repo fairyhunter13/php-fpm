@@ -7,7 +7,9 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
 
-RUN chmod ug+x /usr/bin/composer ; \
+RUN export $PATH=$PATH:/usr/local/bin; \
+    export $PATH=$PATH:/usr/bin; \
+    chmod ug+x /usr/bin/composer ; \
     chmod ug+x /usr/local/bin/install-php-extensions ; \
     sync ; \
     install-php-extensions \
