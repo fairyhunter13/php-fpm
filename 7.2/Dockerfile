@@ -25,7 +25,6 @@ RUN export $PATH=$PATH:/usr/bin; \
     exif \
     gd \
     gettext \
-    gmagick \
     gmp \
     grpc \
     http \
