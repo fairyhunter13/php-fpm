@@ -71,6 +71,7 @@ RUN chmod ug+x /usr/bin/composer ; \
     sysvmsg \
     sysvsem \
     sysvshm \
+    tdlib \
     tidy \
     timezonedb \
     uopz \
