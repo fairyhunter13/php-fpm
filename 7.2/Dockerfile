@@ -3,7 +3,7 @@ FROM php:7.2-fpm
 
 ARG FPM_MAX_CHILDREN=100
 
-COPY --from=composer /usr/bin/composer /usr/bin/composer
+COPY --from=composer /usr/bin/composer /usr/bin/
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 
