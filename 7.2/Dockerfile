@@ -5,12 +5,11 @@ ARG FPM_MAX_CHILDREN=100
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 
-RUN export $PATH=$PATH:/usr/local/bin; \
-    export $PATH=$PATH:/usr/bin; \
+RUN export $PATH=$PATH:/usr/bin; \
     chmod ug+x /usr/bin/composer ; \
-    chmod ug+x /usr/local/bin/install-php-extensions ; \
+    chmod ug+x /usr/bin/install-php-extensions ; \
     sync ; \
     install-php-extensions \
     amqp \
