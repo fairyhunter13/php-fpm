@@ -65,7 +65,6 @@ RUN install-php-extensions snmp
 RUN install-php-extensions snuffleupagus
 RUN install-php-extensions soap
 RUN install-php-extensions sockets
-RUN install-php-extensions sqlsrv
 RUN install-php-extensions ssh2
 RUN install-php-extensions sysvmsg
 RUN install-php-extensions sysvsem
