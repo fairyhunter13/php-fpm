@@ -33,7 +33,7 @@ RUN chmod ug+x /usr/bin/composer ; \
     interbase \
     intl \
     ldap \
-    mailparsed \
+    mailparse \
     mcrypt \
     memcache \
     memcached \
