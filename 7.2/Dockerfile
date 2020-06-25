@@ -70,7 +70,6 @@ RUN install-php-extensions amqp \
     sysvshm\
     tdlib\
     tidy\
-    timezonedb\
     uopz\
     uuid\
     wddx\
