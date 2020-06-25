@@ -1,9 +1,10 @@
+FROM composer:1 AS composer
 FROM php:7.2-fpm
 
 ARG FPM_MAX_CHILDREN=100
 
-ADD ./composer /usr/bin/
-ADD ./install-php-extensions /usr/bin/
+COPY --from=composer /usr/bin/composer /usr/bin/
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 
 RUN chmod ug+x /usr/bin/composer; \
     chmod ug+x /usr/bin/install-php-extensions; \
