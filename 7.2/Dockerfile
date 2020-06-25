@@ -22,7 +22,6 @@ RUN install-php-extensions enchant
 RUN install-php-extensions exif
 RUN install-php-extensions gd
 RUN install-php-extensions gettext
-RUN install-php-extensions gmagick
 RUN install-php-extensions gmp
 RUN install-php-extensions grpc
 RUN install-php-extensions http
