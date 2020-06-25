@@ -22,6 +22,7 @@ RUN install-php-extensions enchant
 RUN install-php-extensions exif
 RUN install-php-extensions gd
 RUN install-php-extensions gettext
+RUN install-php-extensions gmagick
 RUN install-php-extensions gmp
 RUN install-php-extensions grpc
 RUN install-php-extensions http
@@ -63,11 +64,17 @@ RUN install-php-extensions snmp
 RUN install-php-extensions snuffleupagus
 RUN install-php-extensions soap
 RUN install-php-extensions sockets
+RUN install-php-extensions solr
+RUN install-php-extensions sqlsrv
+RUN install-php-extensions ssh2
 RUN install-php-extensions sysvmsg
 RUN install-php-extensions sysvsem
 RUN install-php-extensions sysvshm
 RUN install-php-extensions tdlib
 RUN install-php-extensions tidy
+RUN install-php-extensions timezonedb
+RUN install-php-extensions uopz
+RUN install-php-extensions uuid
 RUN install-php-extensions wddx
 RUN install-php-extensions xdebug
 RUN install-php-extensions xhprof
