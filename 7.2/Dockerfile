@@ -7,7 +7,7 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 
-RUN export $PATH=$PATH:/usr/bin; \
+RUN export $PATH=/usr/bin:$PATH; \
     chmod ug+x /usr/bin/composer ; \
     chmod ug+x /usr/bin/install-php-extensions ; \
     sync ; \
