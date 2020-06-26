@@ -14,7 +14,8 @@ RUN chmod ug+x /usr/bin/composer; \
 
 RUN install-php-extensions solr \
     grpc \
-    sqlsrv
+    sqlsrv \
+    ssh2
 RUN install-php-extensions amqp \
     apcu \
     apcu_bc \
@@ -68,8 +69,7 @@ RUN install-php-extensions snmp \
     snuffleupagus \
     soap \
     sockets
-RUN install-php-extensions ssh2 \
-    sysvmsg \
+RUN install-php-extensions sysvmsg \
     sysvsem \
     sysvshm
 RUN install-php-extensions tdlib \
