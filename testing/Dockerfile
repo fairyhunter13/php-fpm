@@ -13,7 +13,8 @@ RUN chmod ug+x /usr/bin/composer; \
     sync
 
 RUN install-php-extensions solr \
-    grpc
+    grpc \
+    sqlsrv
 RUN install-php-extensions amqp \
     apcu \
     apcu_bc \
@@ -67,8 +68,7 @@ RUN install-php-extensions snmp \
     snuffleupagus \
     soap \
     sockets
-RUN install-php-extensions sqlsrv \
-    ssh2 \
+RUN install-php-extensions ssh2 \
     sysvmsg \
     sysvsem \
     sysvshm
