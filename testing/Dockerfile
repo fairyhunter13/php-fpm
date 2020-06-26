@@ -16,7 +16,8 @@ RUN install-php-extensions tdlib
 RUN install-php-extensions solr \
     grpc \
     sqlsrv \
-    ssh2
+    ssh2 \
+    timezonedb
 RUN install-php-extensions amqp \
     apcu \
     apcu_bc \
@@ -74,7 +75,6 @@ RUN install-php-extensions sysvmsg \
     sysvsem \
     sysvshm
 RUN install-php-extensions tidy \
-    timezonedb \
     uopz \
     uuid
 RUN install-php-extensions wddx \
