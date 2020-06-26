@@ -44,8 +44,8 @@ RUN install-php-extensions amqp \
     gd \
     gettext \
     gmp \
-    http \
-    igbinary \
+    http
+RUN install-php-extensions igbinary \
     imagick \
     imap \
     interbase \
