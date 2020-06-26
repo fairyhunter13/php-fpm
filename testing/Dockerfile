@@ -13,11 +13,14 @@ RUN chmod ug+x /usr/bin/composer; \
     sync
 
 RUN install-php-extensions tdlib
-RUN install-php-extensions solr \
-    grpc \
+RUN install-php-extensions grpc \
+    solr \
     sqlsrv \
     ssh2 \
-    timezonedb
+    timezonedb \
+    uopz \
+    uuid \
+    xdebug
 RUN install-php-extensions amqp \
     apcu \
     apcu_bc \
@@ -74,11 +77,8 @@ RUN install-php-extensions snmp \
 RUN install-php-extensions sysvmsg \
     sysvsem \
     sysvshm
-RUN install-php-extensions tidy \
-    uopz \
-    uuid
+RUN install-php-extensions tidy
 RUN install-php-extensions wddx \
-    xdebug \
     xhprof \
     xmlrpc \
     xsl
