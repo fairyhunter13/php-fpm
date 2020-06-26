@@ -12,11 +12,11 @@ RUN chmod ug+x /usr/bin/composer; \
     apt-get install -y --no-install-recommends apt-utils; \
     sync
 
+RUN install-php-extensions tdlib
 RUN install-php-extensions solr \
     grpc \
     sqlsrv \
     ssh2
-RUN install-php-extensions tdlib
 RUN install-php-extensions amqp \
     apcu \
     apcu_bc \
