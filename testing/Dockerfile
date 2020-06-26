@@ -15,85 +15,70 @@ RUN install-php-extensions amqp \
     apcu_bc \
     bcmath \
     bz2
-
 RUN install-php-extensions calendar \
     cmark\
     dba\
     decimal\
     enchant
-
 RUN install-php-extensions exif\
     gd\
     gettext\
     gmp\
     grpc
-
 RUN install-php-extensions http\
     igbinary\
     imagick\
     imap\
     interbase
-
 RUN install-php-extensions intl\
     ldap\
     mailparse\
     mcrypt\
     memcache
-
 RUN install-php-extensions memcached\
     mongodb \
     msgpack\
     mysqli\
     oauth
-
 RUN install-php-extensions odbc \
     opcache \
     opencensus \
     pcntl \
     pcov
-
 RUN install-php-extensions pdo_dblib \
     pdo_firebird \
     pdo_mysql \
     pdo_odbc \
     pdo_pgsql
-
 RUN install-php-extensions pdo_sqlsrv \
     pgsql \
     propro \
     protobuf \
     pspell
-
 RUN install-php-extensions raphf \
     rdkafka \
     recode \
     redis \
     shmop
-
 RUN install-php-extensions snmp \
     snuffleupagus \
     soap \
-    sockets \
-    solr
-
+    sockets
 RUN install-php-extensions sqlsrv \
     ssh2 \
     sysvmsg \
     sysvsem \
     sysvshm
-
 RUN install-php-extensions tdlib \
     tidy \
     timezonedb \
     uopz \
     uuid
-
 RUN install-php-extensions wddx \
     xdebug \
     xhprof \
     xmlrpc \
     xsl
-
 RUN install-php-extensions yaml \
     zip
 
