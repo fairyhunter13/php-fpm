@@ -10,7 +10,8 @@ RUN chmod ug+x /usr/bin/composer; \
     chmod ug+x /usr/bin/install-php-extensions; \
     sync
 
-RUN install-php-extensions solr
+RUN install-php-extensions solr \
+    grpc
 RUN install-php-extensions amqp \
     apcu \
     apcu_bc \
@@ -24,8 +25,7 @@ RUN install-php-extensions calendar \
 RUN install-php-extensions exif\
     gd\
     gettext\
-    gmp\
-    grpc
+    gmp
 RUN install-php-extensions http\
     igbinary\
     imagick\
