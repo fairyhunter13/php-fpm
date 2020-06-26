@@ -64,6 +64,7 @@ RUN install-php-extensions snmp \
     snuffleupagus \
     soap \
     sockets
+RUN install-php-extensions solr
 RUN install-php-extensions sqlsrv \
     ssh2 \
     sysvmsg \
