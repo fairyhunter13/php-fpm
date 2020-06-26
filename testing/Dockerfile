@@ -12,7 +12,11 @@ RUN chmod ug+x /usr/bin/composer; \
     apt-get install -y --no-install-recommends apt-utils; \
     sync
 
+# The top priorities of the extensions' installation
+# tdlib is a heavy library that should be installed separately
 RUN install-php-extensions tdlib
+# This part is the must be installed first extensions
+# These extensions must be installed before the others extension's installation
 RUN install-php-extensions grpc \
     solr \
     sqlsrv \
@@ -21,6 +25,10 @@ RUN install-php-extensions grpc \
     uopz \
     uuid \
     xdebug
+# These extensions are the low priorities of the extensions' installation
+# These extensions are the rest extensions that need to be installed
+# If there is a new extension, try to add here
+# If it's fail, then move it to the part of the must be installed first extensions
 RUN install-php-extensions amqp \
     apcu \
     apcu_bc \
