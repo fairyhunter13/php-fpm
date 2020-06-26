@@ -24,7 +24,8 @@ RUN install-php-extensions grpc \
     timezonedb \
     uopz \
     uuid \
-    xdebug
+    xdebug \
+    msgpack
 # These extensions are the low priorities of the extensions' installation
 # These extensions are the rest extensions that need to be installed
 # If there is a new extension, try to add here
@@ -55,12 +56,11 @@ RUN install-php-extensions amqp \
     memcache \
     memcached \
     mongodb \
-    msgpack \
     mysqli \
     oauth \
     odbc \
-    opcache
-RUN install-php-extensions opencensus \
+    opcache \
+    opencensus \
     pcntl \
     pcov \
     pdo_dblib \
