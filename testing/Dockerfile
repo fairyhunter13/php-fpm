@@ -59,8 +59,8 @@ RUN install-php-extensions amqp \
     mysqli \
     oauth \
     odbc \
-    opcache \
-    opencensus \
+    opcache
+RUN install-php-extensions opencensus \
     pcntl \
     pcov \
     pdo_dblib \
