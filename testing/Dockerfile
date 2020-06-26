@@ -25,64 +25,64 @@ RUN install-php-extensions amqp \
     apcu \
     apcu_bc \
     bcmath \
-    bz2
-RUN install-php-extensions calendar \
-    cmark\
-    dba\
-    decimal\
-    enchant
-RUN install-php-extensions exif\
-    gd\
-    gettext\
-    gmp
-RUN install-php-extensions http\
-    igbinary\
-    imagick\
-    imap\
-    interbase
-RUN install-php-extensions intl\
-    ldap\
-    mailparse\
-    mcrypt\
-    memcache
-RUN install-php-extensions memcached\
+    bz2 \
+    calendar \
+    cmark \
+    dba \
+    decimal \
+    enchant \
+    exif \
+    gd \
+    gettext \
+    gmp \
+    http \
+    igbinary \
+    imagick \
+    imap \
+    interbase \
+    intl \
+    ldap \
+    mailparse \
+    mcrypt \
+    memcache \
+    memcached \
     mongodb \
-    msgpack\
-    mysqli\
-    oauth
-RUN install-php-extensions odbc \
+    msgpack \
+    mysqli \
+    oauth \
+    odbc \
     opcache \
     opencensus \
     pcntl \
-    pcov
-RUN install-php-extensions pdo_dblib \
+    pcov \
+    pdo_dblib \
     pdo_firebird \
     pdo_mysql \
     pdo_odbc \
-    pdo_pgsql
-RUN install-php-extensions pdo_sqlsrv \
+    pdo_pgsql \
+    pdo_sqlsrv \
     pgsql \
     propro \
     protobuf \
-    pspell
-RUN install-php-extensions raphf \
+    pspell \
+    raphf \
     rdkafka \
     recode \
     redis \
-    shmop
-RUN install-php-extensions snmp \
+    shmop \
+    snmp \
     snuffleupagus \
     soap \
-    sockets
-RUN install-php-extensions sysvmsg \
+    sockets \
+    sysvmsg \
     sysvsem \
-    sysvshm
-RUN install-php-extensions tidy
-RUN install-php-extensions wddx \
+    sysvshm \
+    tidy \
+    wddx \
     xhprof \
     xmlrpc \
-    xsl
-RUN install-php-extensions yaml \
+    xsl \
+    yaml \
     zip
 
 RUN apt-get update; \
