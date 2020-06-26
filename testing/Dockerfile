@@ -8,6 +8,8 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 
 RUN chmod ug+x /usr/bin/composer; \
     chmod ug+x /usr/bin/install-php-extensions; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends apt-utils; \
     sync
 
 RUN install-php-extensions solr \
@@ -86,6 +88,7 @@ RUN install-php-extensions yaml \
 RUN apt-get update; \
     apt-get install wget git tar -y --no-install-recommends; \
     rm -rf /var/lib/apt/lists/*; \
+    apt-get purge -y --auto-remove apt-utils; \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false;
 
 RUN sed 's@pm.max_children = [0-9]*@pm.max_children = ${FPM_MAX_CHILDREN}@g' /usr/local/etc/php-fpm.d/www.conf -i;
