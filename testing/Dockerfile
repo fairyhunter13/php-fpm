@@ -17,20 +17,19 @@ RUN chmod ug+x /usr/bin/composer; \
 RUN install-php-extensions tdlib
 # This part is the must be installed first extensions
 # These extensions must be installed before the others extension's installation
-RUN install-php-extensions amqp \
-    grpc \
+RUN install-php-extensions grpc \
     solr \
     sqlsrv \
     ssh2 \
     timezonedb \
     uopz \
-    uuid \
-    xdebug
+    uuid
 # These extensions are the low priorities of the extensions' installation
 # These extensions are the rest extensions that need to be installed
 # If there is a new extension, try to add here
 # If it's fail, then move it to the part of the must be installed first extensions
-RUN install-php-extensions apcu \
+RUN install-php-extensions amqp \
+    apcu \
     apcu_bc \
     bcmath \
     bz2
@@ -91,7 +90,8 @@ RUN install-php-extensions sysvshm \
     xmlrpc
 RUN install-php-extensions xsl \
     yaml \
-    zip
+    zip \
+    xdebug
 
 RUN apt-get update; \
     apt-get install wget git tar -y --no-install-recommends; \
