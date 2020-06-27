@@ -17,6 +17,7 @@ RUN chmod ug+x /usr/bin/composer; \
 RUN install-php-extensions tdlib
 # This part is the must be installed first extensions
 # These extensions must be installed before the others extension's installation
+RUN install-php-extensions xdebug
 RUN install-php-extensions grpc \
     solr \
     sqlsrv \
@@ -90,8 +91,7 @@ RUN install-php-extensions sysvshm \
     xmlrpc
 RUN install-php-extensions xsl \
     yaml \
-    zip \
-    xdebug
+    zip
 
 RUN apt-get update; \
     apt-get install wget git tar -y --no-install-recommends; \
