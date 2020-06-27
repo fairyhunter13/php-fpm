@@ -33,63 +33,63 @@ RUN install-php-extensions amqp \
     apcu \
     apcu_bc \
     bcmath \
-    bz2 \
-    calendar \
+    bz2
+RUN install-php-extensions calendar \
     cmark \
     dba \
     decimal \
-    enchant \
-    exif \
+    enchant
+RUN install-php-extensions exif \
     gd \
     gettext \
     gmp \
-    http \
-    igbinary \
+    http
+RUN install-php-extensions igbinary \
     imagick \
     imap \
     interbase \
-    intl \
-    ldap \
+    intl
+RUN install-php-extensions ldap \
     mailparse \
     mcrypt \
     memcache \
-    memcached \
-    mongodb \
+    memcached
+RUN install-php-extensions mongodb \
     msgpack \
     mysqli \
     oauth \
-    odbc \
-    opcache \
+    odbc
+RUN install-php-extensions opcache \
     opencensus \
     pcntl \
     pcov \
-    pdo_dblib \
-    pdo_firebird \
+    pdo_dblib
+RUN install-php-extensions pdo_firebird \
     pdo_mysql \
     pdo_odbc \
     pdo_pgsql \
-    pdo_sqlsrv \
-    pgsql \
+    pdo_sqlsrv
+RUN install-php-extensions pgsql \
     propro \
     protobuf \
     pspell \
-    raphf \
-    rdkafka \
+    raphf
+RUN install-php-extensions rdkafka \
     recode \
     redis \
     shmop \
-    snmp \
-    snuffleupagus \
+    snmp
+RUN install-php-extensions snuffleupagus \
     soap \
     sockets \
     sysvmsg \
-    sysvsem \
-    sysvshm \
+    sysvsem
+RUN install-php-extensions sysvshm \
     tidy \
     wddx \
     xhprof \
-    xmlrpc \
-    xsl \
+    xmlrpc
+RUN install-php-extensions xsl \
     yaml \
     zip
 
