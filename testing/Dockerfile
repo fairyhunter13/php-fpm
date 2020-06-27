@@ -6,29 +6,11 @@ ARG FPM_MAX_CHILDREN=100
 COPY --from=composer /usr/bin/composer /usr/bin/
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 
-RUN chmod ug+x /usr/bin/composer;\
-    chmod ug+x /usr/bin/install-php-extensions;\
-    apt-get update;\
-    apt-get install -y --no-install-recommends apt-utils;\
-    sync
+RUN chmod ug+x /usr/bin/composer &&\
+    chmod ug+x /usr/bin/install-php-extensions &&\
+    apt-get update &&\
+    apt-get install -y --no-install-recommends apt-utils
 
-# The top priorities of the extensions' installation
-# tdlib is a heavy library that should be installed separately
-RUN install-php-extensions tdlib
-# This part is the must be installed first extensions
-# These extensions must be installed before the others extension's installation
-RUN install-php-extensions grpc\
-    solr\
-    sqlsrv\
-    ssh2\
-    timezonedb\
-    uopz\
-    uuid\
-    xdebug
-# These extensions are the low priorities of the extensions' installation
-# These extensions are the rest extensions that need to be installed
-# If there is a new extension, try to add here
-# If it's fail, then move it to the part of the must be installed first extensions
 RUN install-php-extensions amqp\
     apcu\
     apcu_bc\
@@ -38,18 +20,19 @@ RUN install-php-extensions amqp\
     cmark\
     dba\
     decimal\
-    enchant\
-    exif\
+    enchant
+RUN install-php-extensions exif\
     gd\
     gettext\
     gmp\
+    grpc\
     igbinary\
     imagick\
     imap\
     interbase\
     intl\
-    ldap\
-    mailparse\
+    ldap
+RUN install-php-extensions mailparse\
     mcrypt\
     msgpack\
     memcache\
@@ -58,8 +41,8 @@ RUN install-php-extensions amqp\
     mysqli\
     oauth\
     odbc\
-    opcache\
-    opencensus\
+    opcache
+RUN install-php-extensions opencensus\
     pcntl\
     pcov\
     pdo_dblib\
@@ -68,8 +51,8 @@ RUN install-php-extensions amqp\
     pdo_odbc\
     pdo_pgsql\
     pdo_sqlsrv\
-    pgsql\
-    propro\
+    pgsql
+RUN install-php-extensions propro\
     protobuf\
     pspell\
     raphf\
@@ -78,25 +61,33 @@ RUN install-php-extensions amqp\
     recode\
     redis\
     shmop\
-    snmp\
-    snuffleupagus\
-    soap\
+    snmp
+RUN install-php-extensions soap\
     sockets\
+    solr \
+    sqlsrv\
+    ssh2\
     sysvmsg\
     sysvsem\
     sysvshm\
+    tdlib\
     tidy\
+    timezonedb
+RUN install-php-extensions uopz\
+    uuid\
     wddx\
     xhprof\
     xmlrpc\
     xsl\
     yaml\
-    zip
+    zip\
+    # xdebug must be installed last: there is a stuck issue if we install it before any other extensions
+    xdebug
 
-RUN apt-get update;\
-    apt-get install wget git tar -y --no-install-recommends;\
-    rm -rf /var/lib/apt/lists/*;\
-    apt-get purge -y --auto-remove apt-utils;\
+RUN apt-get update &&\
+    apt-get install wget git tar -y --no-install-recommends &&\
+    rm -rf /var/lib/apt/lists/* &&\
+    apt-get purge -y --auto-remove apt-utils &&\
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
 
 RUN sed 's@pm.max_children = [0-9]*@pm.max_children = ${FPM_MAX_CHILDREN}@g' /usr/local/etc/php-fpm.d/www.conf -i

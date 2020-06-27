@@ -30,5 +30,15 @@ services:
     restart: on-failure
     image: fairyhunter13/php-fpm:7.2
 ```
-
+# Unincluded Plugins
+The image doesn't contain these following plugins:
+- ffi is not supported for php version 7.2
+- gmagick, because there is already imagick installed
+- mongo is not supported for php version 7.2
+- mssql is not supported for php version 7.2
+- mysql is not supported for php version 7.2
+- parallel, because the image doesn't have php which the thread-safety feature is enabled
+- pthreads, because the image doesn't have php which the thread-safety feature is enabled
+- snuffleupagus, because it keeps messing with the installation of the plugins and maybe the php execution's script
+- sybase_ct is not supported for php version 7.2
 
