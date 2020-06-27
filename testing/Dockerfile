@@ -90,6 +90,6 @@ RUN apt-get update &&\
     apt-get purge -y --auto-remove apt-utils &&\
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
 
-RUN sed 's@pm.max_children = [0-9]*@pm.max_children = ${FPM_MAX_CHILDREN}@g' /usr/local/etc/php-fpm.d/www.conf -i
+RUN sed 's@pm.max_children = [0-9]*@pm.max_children = '${FPM_MAX_CHILDREN}'@g' /usr/local/etc/php-fpm.d/www.conf -i
 
 CMD [ "php-fpm" ]
