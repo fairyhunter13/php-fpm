@@ -12,77 +12,85 @@ RUN chmod ug+x /usr/bin/composer; \
     apt-get install -y --no-install-recommends apt-utils; \
     sync
 
+# The top priorities of the extensions' installation
+# tdlib is a heavy library that should be installed separately
 RUN install-php-extensions tdlib
-RUN install-php-extensions solr \
-    grpc \
+# This part is the must be installed first extensions
+# These extensions must be installed before the others extension's installation
+RUN install-php-extensions grpc \
+    solr \
     sqlsrv \
     ssh2 \
-    timezonedb
+    timezonedb \
+    uopz \
+    uuid \
+    xdebug
+# These extensions are the low priorities of the extensions' installation
+# These extensions are the rest extensions that need to be installed
+# If there is a new extension, try to add here
+# If it's fail, then move it to the part of the must be installed first extensions
 RUN install-php-extensions amqp \
     apcu \
     apcu_bc \
     bcmath \
     bz2
 RUN install-php-extensions calendar \
-    cmark\
-    dba\
-    decimal\
+    cmark \
+    dba \
+    decimal \
     enchant
-RUN install-php-extensions exif\
-    gd\
-    gettext\
-    gmp
-RUN install-php-extensions http\
-    igbinary\
-    imagick\
-    imap\
-    interbase
-RUN install-php-extensions intl\
-    ldap\
-    mailparse\
-    mcrypt\
-    memcache
-RUN install-php-extensions memcached\
-    mongodb \
-    msgpack\
-    mysqli\
-    oauth
-RUN install-php-extensions odbc \
-    opcache \
+RUN install-php-extensions exif \
+    gd \
+    gettext \
+    gmp \
+    http
+RUN install-php-extensions igbinary \
+    imagick \
+    imap \
+    interbase \
+    intl
+RUN install-php-extensions ldap \
+    mailparse \
+    mcrypt \
+    memcache \
+    memcached
+RUN install-php-extensions mongodb \
+    msgpack \
+    mysqli \
+    oauth \
+    odbc
+RUN install-php-extensions opcache \
     opencensus \
     pcntl \
-    pcov
-RUN install-php-extensions pdo_dblib \
-    pdo_firebird \
+    pcov \
+    pdo_dblib
+RUN install-php-extensions pdo_firebird \
     pdo_mysql \
     pdo_odbc \
-    pdo_pgsql
-RUN install-php-extensions pdo_sqlsrv \
-    pgsql \
+    pdo_pgsql \
+    pdo_sqlsrv
+RUN install-php-extensions pgsql \
     propro \
     protobuf \
-    pspell
-RUN install-php-extensions raphf \
-    rdkafka \
+    pspell \
+    raphf
+RUN install-php-extensions rdkafka \
     recode \
     redis \
-    shmop
-RUN install-php-extensions snmp \
-    snuffleupagus \
+    shmop \
+    snmp
+RUN install-php-extensions snuffleupagus \
     soap \
-    sockets
-RUN install-php-extensions sysvmsg \
-    sysvsem \
-    sysvshm
-RUN install-php-extensions tidy \
-    uopz \
-    uuid
-RUN install-php-extensions wddx \
-    xdebug \
+    sockets \
+    sysvmsg \
+    sysvsem
+RUN install-php-extensions sysvshm \
+    tidy \
+    wddx \
     xhprof \
-    xmlrpc \
-    xsl
-RUN install-php-extensions yaml \
+    xmlrpc
+RUN install-php-extensions xsl \
+    yaml \
     zip
 
 RUN apt-get update; \
