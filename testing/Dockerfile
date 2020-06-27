@@ -23,8 +23,8 @@ RUN install-php-extensions grpc \
     sqlsrv \
     ssh2 \
     timezonedb \
-    uopz \
-    uuid
+    uopz
+RUN install-php-extensions uuid
 # These extensions are the low priorities of the extensions' installation
 # These extensions are the rest extensions that need to be installed
 # If there is a new extension, try to add here
@@ -42,8 +42,7 @@ RUN install-php-extensions calendar \
 RUN install-php-extensions exif \
     gd \
     gettext \
-    gmp \
-    http
+    gmp
 RUN install-php-extensions igbinary \
     imagick \
     imap \
@@ -52,10 +51,10 @@ RUN install-php-extensions igbinary \
 RUN install-php-extensions ldap \
     mailparse \
     mcrypt \
+    msgpack \
     memcache \
     memcached
 RUN install-php-extensions mongodb \
-    msgpack \
     mysqli \
     oauth \
     odbc
@@ -73,7 +72,8 @@ RUN install-php-extensions pgsql \
     propro \
     protobuf \
     pspell \
-    raphf
+    raphf \
+    http
 RUN install-php-extensions rdkafka \
     recode \
     redis \
