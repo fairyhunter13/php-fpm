@@ -41,4 +41,5 @@ The image doesn't contain these following plugins:
 - pthreads, because the image doesn't have php which the thread-safety feature is enabled
 - snuffleupagus, because it keeps messing with the installation of the plugins and maybe the php execution's script
 - sybase_ct is not supported for php version 7.2
+- xdebug, because it makes the composer's command stuck inside Docker container
 

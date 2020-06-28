@@ -80,9 +80,7 @@ RUN install-php-extensions uopz\
     xmlrpc\
     xsl\
     yaml\
-    zip\
-    # xdebug must be installed last: there is a stuck issue if we install it before any other extensions
-    xdebug
+    zip
 
 RUN apt-get update &&\
     apt-get install wget git tar -y --no-install-recommends &&\
