@@ -20,8 +20,8 @@ RUN install-php-extensions amqp\
     cmark\
     dba\
     decimal\
-    enchant\
-    exif\
+    enchant
+RUN install-php-extensions exif\
     gd\
     gettext\
     gmp\
@@ -31,8 +31,8 @@ RUN install-php-extensions amqp\
     imap\
     interbase\
     intl\
-    ldap\
-    mailparse\
+    ldap
+RUN install-php-extensions mailparse\
     mcrypt\
     msgpack\
     memcache\
@@ -41,8 +41,8 @@ RUN install-php-extensions amqp\
     mysqli\
     oauth\
     odbc\
-    opcache\
-    opencensus\
+    opcache
+RUN install-php-extensions opencensus\
     pcntl\
     pcov\
     pdo_dblib\
@@ -51,8 +51,8 @@ RUN install-php-extensions amqp\
     pdo_odbc\
     pdo_pgsql\
     pdo_sqlsrv\
-    pgsql\
-    propro\
+    pgsql
+RUN install-php-extensions propro\
     protobuf\
     pspell\
     raphf\
@@ -61,8 +61,8 @@ RUN install-php-extensions amqp\
     recode\
     redis\
     shmop\
-    snmp\
-    soap\
+    snmp
+RUN install-php-extensions soap\
     sockets\
     solr \
     sqlsrv\
@@ -72,8 +72,8 @@ RUN install-php-extensions amqp\
     sysvshm\
     tdlib\
     tidy\
-    timezonedb\
-    uopz\
+    timezonedb
+RUN install-php-extensions uopz\
     uuid\
     wddx\
     xhprof\
@@ -86,7 +86,8 @@ RUN apt-get update &&\
     apt-get install wget git tar -y --no-install-recommends &&\
     rm -rf /var/lib/apt/lists/* &&\
     apt-get purge -y --auto-remove apt-utils &&\
-    apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false &&\
-    sed 's@pm.max_children = [0-9]*@pm.max_children = '${FPM_MAX_CHILDREN}'@g' /usr/local/etc/php-fpm.d/www.conf -i
+    apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
+
+RUN sed 's@pm.max_children = [0-9]*@pm.max_children = '${FPM_MAX_CHILDREN}'@g' /usr/local/etc/php-fpm.d/www.conf -i
 
 CMD [ "php-fpm" ]
